@@ -1,0 +1,18 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Book covers: book_covers/{ownerId}/{fileName}
+    // - Only the owner of that folder can write to it.
+    // - Any authenticated user can read (covers are shown in the shared feed).
+    // - Max size 5MB, images only.
+    match /book_covers/{ownerId}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+                   && request.auth.uid == ownerId
+                   && request.resource.size < 5 * 1024 * 1024
+                   && request.resource.contentType.matches('image/.*');
+    }
+  }
+}

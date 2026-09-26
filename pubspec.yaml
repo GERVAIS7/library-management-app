@@ -1,0 +1,39 @@
+name: library_management_app
+description: A Firebase-backed Library Management App (Flutter Days 10-12 Project).
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+  # Firebase
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.4
+  firebase_storage: ^12.3.4
+
+  # Ads
+  google_mobile_ads: ^9.1.0
+
+  # Image picking
+  image_picker: ^1.1.2
+
+  # State management
+  provider: ^6.1.2
+
+  # Utilities
+  intl: ^0.19.0
+  uuid: ^4.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
